@@ -1,25 +1,32 @@
 // Your code goes here
 
-// click title to change color to blue
+// hover over title changes font size and color
 let h1 = document.querySelector('h1');
 h1.addEventListener('mouseover', function(event) {
+    event.target.style.fontSize = '80px';
     event.target.style.color = 'blue';
 })
-// Press B on Body to change title
+h1.addEventListener('mouseout', function(event) {
+  event.target.style.fontSize = '50px';
+  event.target.style.color = 'grey';
+})
+// Press up arrow on Body to change title and style
 let body = document.querySelector('body');
 body.addEventListener('keydown', function(event){
-    if (event.keyCode == 66) {
+    if (event.code = 'ArrowUp') {
         h1.innerHTML = 'Funky Bus';
+        h1.style.fontSize = '50px';
+        h1.style.border = '1px solid red';
     }
 })
-// Mouse wheel on body to turn change color to cornsilk 
+// Mouse wheel on body changes text to blue 
 let container = document.querySelectorAll('.container.home')
 body.addEventListener('wheel', function() {
-    container[0].style.background = 'cornsilk';
+    container[0].style.color = 'blue';
 })
-// "ready to rock" in console when page loads
+// console displays "page loaded" when page loads
 window.addEventListener('load', () => {
-    console.log('ready to rock');
+    console.log('page loaded');
 })
 // when window is resized the area of the window is calculated
 window.addEventListener('resize', () => {
@@ -37,18 +44,20 @@ document.addEventListener("keydown", (key) => {
   });
 
 
-  // center text on first paragraph when clicked
+  // change text align and background when mouse enters element
 
   const firstParagraph = document.querySelector("p");
   firstParagraph.style.cursor = "pointer";
  
   firstParagraph.addEventListener("pointerover", () => {
-    firstParagraph.style.textAlign = "center";
+    firstParagraph.style.textAlign = "left";
+    firstParagraph.style.backgroundColor = "lightblue";
   });
 
-// align text left when paragraph is unclicked
+// change text align and background when mouse leaves element
 firstParagraph.addEventListener("pointerout", () => {
-    firstParagraph.style.textAlign = "left";
+    firstParagraph.style.textAlign = "center";
+    firstParagraph.style.backgroundColor = "white";
   });
 
 // console.log when network connection is lost/established
